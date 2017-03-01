@@ -1,0 +1,15 @@
+{% extends "shop_cms/res_list.html" %}
+{% block search %}
+{% endblock %}
+
+{% block table_tr %}
+    <th>线路编号</th>
+   <th>用户名称</th>
+   <th>本端地址</th>
+
+{% endblock %}
+{% block table_td %}
+    <td>{{item.user_id}}</td>
+   <td>{{item.nick}}</td>
+   <td>{{item.phone}}</td>
+{% endblock %}

@@ -19,7 +19,10 @@ import shop_cms.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', shop_cms.views.lists),
-
+    url(r'^$', shop_cms.views.index), 
+    url(r'^lists/(?P<table>[0-9a-zA-Z]*)/$', shop_cms.views.lists,name='lists'), 
+    url(r'^add/(?P<table>[0-9a-zA-Z]*)/$', shop_cms.views.add,name='add'), 
+    url(r'^edit/(?P<table>[0-9a-zA-Z]*)/$', shop_cms.views.edit,name='edit'), 
+    url(r'^delete/(?P<table>[0-9a-zA-Z]*)/$', shop_cms.views.edit,name='delete'), 
 
 ]
