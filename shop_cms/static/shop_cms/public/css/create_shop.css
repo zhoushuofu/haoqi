@@ -1,0 +1,151 @@
+
+/* 通用部分 */
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+a {
+	text-decoration: none;
+}
+
+.clearfix:after {
+	display: block;
+	content: '';
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	overflow: hidden;	
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.hidden {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+/* 整体样式 */
+.wrapper{
+	width: 60%;
+	margin: 0 auto;
+	background-color: #e4e4e4;
+}
+
+form {
+	width: 100%;
+	font-family: "Microsoft YaHei";
+	font-size: 14px;
+}
+
+/* 基础信息样式 */
+.baseInfo{
+	width: 60%;
+	padding: 20px 25px;
+	box-sizing: border-box;
+	/* background-color: #f60; */
+}
+
+/* 表单样式 */
+.baseInfo .input {
+	margin-bottom: 3%;
+}
+.baseInfo label {
+	width: 20% !important;
+	margin-right: 2%;
+	text-align: left;
+}
+.baseInfo input {
+	width: 80%;
+	height: 18px;
+	box-shadow: 0px 1px 2px #ccc inset;
+	text-indent: 5px;
+	vertical-align: middle;
+	background-color: #f7f7f7;
+	outline: none;
+}
+/* 针对下面有提示的input输入框 */
+.baseInfo .input > div {
+	display: inline-block;
+	width: 80%;
+	vertical-align: top;
+}
+.baseInfo .input > div input {
+	width: 100%;
+}
+.baseInfo .input > div p {
+	margin-bottom: 0px;
+}
+
+/* 点击上传的按钮 */
+.baseInfo .button {
+	font-size: 13px;
+	display: inline-block;
+	padding:3px 30px;
+	border: 2px solid #7e7e7e;
+	background-color: #eee;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.baseInfo textarea {
+	width: 80%;
+	height: 80px;
+	resize: none;
+	box-shadow: 0px 1px 2px #aaa inset;
+	overflow-y: scroll;
+	vertical-align: top;
+	background-color: #f7f7f7;
+	outline: none;
+}
+
+/* 展示部分 */
+.preview {
+	width: 40%;
+	padding: 20px 25px;
+	box-sizing: border-box;
+	/* background-color: cyan; */
+}
+/* 头像展示 */
+.preview .avatar .show {
+	width: 60px;
+	height: 60px;
+	background-color: #f7f7f7;
+	border:1px solid #ccc;
+}
+/* 门店展示 */
+.preview .shopImg .shopImgShow {
+	width: 100%;
+	height: 150px;
+	background-color: #f7f7f7;
+	border: 1px solid #ccc;
+}
+
+/* 欢迎语 */
+.preview .welcome textarea {
+	width: 100%;
+	height: 50px;
+	resize: none;
+	background-color: #f7f7f7;
+	overflow-y: scroll;
+}
+
+/* 提交按钮 */
+.preview .submit {
+	margin-top:18px;
+	font-size: 13px;
+	display: inline-block;
+	padding:3px 50px;
+	margin-left: -3px;
+	border: 2px solid #7e7e7e;
+	background-color: #eee;
+	border-radius: 6px;
+}

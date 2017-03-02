@@ -1,0 +1,91 @@
+{% extends "shop_cms/index.html" %}
+{% load staticfiles %}
+{% block page_css %}
+    <link rel="stylesheet" href="{% static 'shop_cms/public/css/create_shop.css' %}">
+{% endblock %}
+
+
+{% block page_title %}
+{% endblock %}
+
+{% block container %}	
+
+    <!-- 门店信息管理 -->
+    <div class="wrapper clearfix">
+    	<form action="#">
+    		<!-- 左边基础信息部分 -->
+	    	<div class="baseInfo fl">
+				<div class="input">
+					<label>门店名称 :</label>
+					<input type="text" name="">
+				</div>
+				<div class="input">
+					<label>门店头像 :</label>
+					<input type="file" name="" id="shopAvatar" class="file hidden">
+					<a class="button" id="shopAvatarBtn">点击上传</a>
+				</div>
+				<div class="input">
+					<label>门店照片 :</label>
+					<input type="file" name="" id="shopImg" class="file hidden">
+					<a class="button" id="shopImgBtn">点击上传</a>
+				</div>
+				<div class="input">
+					<label>门店位置 :</label>
+					<input type="text" name="">
+				</div>
+				<div class="input">
+					<label>联系电话 :</label>
+					<input type="text" name="">
+				</div>
+				<div class="input">
+					<label>营业时间 :</label>
+					<div>
+						<input type="text" name="">
+						<p>( 日期格式 : 2017-01-17 )</p>
+					</div>
+				</div>
+				<div class="input">
+					<label>主营品牌 :</label>
+					<div>
+						<input type="text" name="">
+						<p>以逗号分割多个品牌,例 : 捷安特 , 杀马特</p>
+					</div>
+				</div>
+				<div class="input">
+					<label>门店简介 :</label>
+					<textarea name="" id="" cols="30" rows="10"></textarea>
+				</div>
+				<div class="input">
+					<label>俱乐部ID :</label>
+					<input type="text" name="">
+				</div>
+	    	</div>
+	    	<!-- 右边部分 -->
+	    	<div class="preview fr">
+	    		<!-- 用户头像 -->
+	    		<div class="avatar">
+	    			<div class="show"></div>
+	    			<p class="hit">头像预览</p>
+	    		</div>
+	    		<!-- 门店照片预览 -->
+	    		<div class="shopImg">
+	    			<div class="shopImgShow"></div>
+	    			<p class="hit">门店照片预览</p>
+	    		</div>
+	    		<!-- 欢迎语设置 -->
+	    		<div class="welcome">
+	    			<p>欢迎语设置(用户首次咨询时将看到您设置的欢迎语) :</p>
+	    			<textarea name="" id="" cols="30" rows="10"></textarea>
+	    		</div>
+	    		<input type="submit" value="保存" class="submit">
+	    	</div>
+    	</form>    	
+    </div>
+
+
+{% endblock %}
+{% block page_javascript %}
+
+    <script src="{% static 'shop_cms/public/js/create_shop.js' %}"></script>
+{% endblock %}
+

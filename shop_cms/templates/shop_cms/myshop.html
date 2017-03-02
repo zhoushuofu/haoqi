@@ -1,0 +1,22 @@
+{% extends "shop_cms/res_list.html" %}
+{% block search %}
+{% endblock %}
+
+{% block table_tr %}
+
+<th>商店id</th>
+<th>名称</th>
+<th>用户id</th>
+<th>地址</th>
+<th>开门时间</th>
+
+
+{% endblock %}
+{% block table_td %}
+<td>{{item.shop_id}}</td>
+<td>{{item.title}}</td>
+<td>{{item.user_id}}</td>
+<td>{{item.address}}</td>
+<td>{{item.open_time}}</td>
+
+{% endblock %}
