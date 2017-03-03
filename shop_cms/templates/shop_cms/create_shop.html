@@ -12,52 +12,57 @@
 
     <!-- 门店信息管理 -->
     <div class="wrapper clearfix">
-    	<form action="#">
+    	<form action="{% url 'create_shop' %}" method='POST'>{% csrf_token %}
+    		<input type="hidden" name="user_id" value="11145"/>
+    		<input type="hidden" name="longitude" value="123.1"/>
+    		<input type="hidden" name="latitude" value="22.2"/>
+    		<input type="hidden" name="city" value="深圳"/>
+    		<input type="hidden" name="province" value="广州"/>
     		<!-- 左边基础信息部分 -->
 	    	<div class="baseInfo fl">
 				<div class="input">
 					<label>门店名称 :</label>
-					<input type="text" name="">
+					<input type="text" name="title">
 				</div>
 				<div class="input">
 					<label>门店头像 :</label>
-					<input type="file" name="" id="shopAvatar" class="file hidden">
+					<input type="file" name="icon_photo" id="shopAvatar" class="file hidden">
 					<a class="button" id="shopAvatarBtn">点击上传</a>
 				</div>
 				<div class="input">
 					<label>门店照片 :</label>
-					<input type="file" name="" id="shopImg" class="file hidden">
+					<input type="file" name="photo_ids" id="shopImg" class="file hidden">
 					<a class="button" id="shopImgBtn">点击上传</a>
 				</div>
 				<div class="input">
 					<label>门店位置 :</label>
-					<input type="text" name="">
+					<input type="text" name="address">
 				</div>
 				<div class="input">
 					<label>联系电话 :</label>
-					<input type="text" name="">
+					<input type="text" name="phone">
 				</div>
 				<div class="input">
 					<label>营业时间 :</label>
 					<div>
-						<input type="text" name="">
+						<input type="text" name="open_time">
 						<p>( 日期格式 : 2017-01-17 )</p>
 					</div>
 				</div>
 				<div class="input">
 					<label>主营品牌 :</label>
 					<div>
-						<input type="text" name="">
+						<input type="text" name="brands">
 						<p>以逗号分割多个品牌,例 : 捷安特 , 杀马特</p>
 					</div>
 				</div>
 				<div class="input">
 					<label>门店简介 :</label>
-					<textarea name="" id="" cols="30" rows="10"></textarea>
+					<textarea name="intro" id="" cols="30" rows="10"></textarea>
 				</div>
 				<div class="input">
 					<label>俱乐部ID :</label>
-					<input type="text" name="">
+					<input type="text" name="circle_id">
 				</div>
 	    	</div>
 	    	<!-- 右边部分 -->

@@ -4,6 +4,10 @@ from models import UserInfo
 from django.db import connection
 import json
 from django.http import HttpResponseRedirect 
+
+from django.contrib.auth import views
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def __open_connection():
     return connection.cursor()
@@ -36,9 +40,9 @@ def get_insert_shop_id():
     shop_id=res[0]['id']
     return shop_id
 
+@login_required  
 def index(request):
     context = {}
-    print '++++++++++++++++++++++++'
     return render(request,'shop_cms/create_shop.html',context)  
 
 # 显示各列表信息
@@ -103,6 +107,7 @@ def delete(request, table):
     # 如果没有有效提交，则仍留在原来页面
     return render(request, 'add.html', context)
 
+@login_required  
 def create_shop(request):
     if request.method=='POST':
         title=request.POST['title']
@@ -126,21 +131,28 @@ def create_shop(request):
             brands, longitude, latitude, city, province)
         print sql
         exe_sql(sql)
-        return HttpResponseRedirect("/myshop/%d"%user_id) 
+        return HttpResponseRedirect("/my_shop/%s"%user_id) 
 
 
+@login_required  
 def my_shop(request,user_id):
     user_id=int(user_id)
-    sql='''select * from shop_info where user_id=%d and status=0'''%user_id
+    sql='''select shop_id,title,user_id,location,open_time from shop_info where user_id=%d and status=0'''%user_id
     res=exe_sql(sql)
     context=res
+    print res
+    context = {
+        'data': res,
+        'table': 'table',
+        'sub_title': '我的商店',
+    }
     return render(request,'shop_cms/myshop.html',context)
 
 #用户登陆选项，所有的函数将会返回一个template_response的实例，用来描绘页面，同时你也可以在return之前增加一些特定的功能
 #用户登陆
 def login(request):
     #extra_context是一个字典，它将作为context传递给template，这里告诉template成功后跳转的页面将是/index
-    template_response = views.login(request, extra_context={'next': '/index'})
+    template_response = views.login(request, extra_context={'next': '/'})
     return template_response
 
 #用户退出
@@ -152,6 +164,6 @@ def logout(request):
 #密码更改
 def password_change(request):
     #post_change_redirect表示密码成功修改后将跳转的页面.
-    template_response = views.password_change(request,post_change_redirect='/index')
+    template_response = views.password_change(request,post_change_redirect='/')
     return template_response
 
